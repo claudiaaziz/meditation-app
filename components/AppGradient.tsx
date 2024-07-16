@@ -9,7 +9,7 @@ export default function AppGradient({
     colors: string[];
 }) {
     return (
-        <LinearGradient colors={colors} className='flex-1'>
+        <LinearGradient colors={colors} className='flex-1 px-5'>
             <SafeAreaView className='flex-1 px-5 py-3'>{children}</SafeAreaView>
         </LinearGradient>
     );
