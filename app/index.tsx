@@ -4,8 +4,12 @@ import beachImage from '@/assets/meditation-images/beach.webp';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import CustomButton from '@/components/CustomButton';
+import { useRouter } from 'expo-router';
+import AppGradient from '@/components/AppGradient';
 
 export default function App() {
+    const router = useRouter();
+
     return (
         <View className='flex-1'>
             <ImageBackground
@@ -13,30 +17,29 @@ export default function App() {
                 resizeMode='cover'
                 className='flex-1'
             >
-                <LinearGradient
-                    className='flex-1'
-                    colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.8)']}
-                >
-                    <SafeAreaView className='flex-1 mx-5 my-12 justify-between'>
-                        <View>
-                            <Text className='text-center text-white font-bold text-4xl'>
-                                Meditation
-                            </Text>
-                            <Text className='text-center text-white text-regular text-2xl mt-3'>
-                                Simplifying Meditation for Everyone
-                            </Text>
-                        </View>
+                <AppGradient colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.8)']}>
+                        <SafeAreaView className='flex-1 px-1 justify-between'>
+                            <View>
+                                <Text className='text-center text-white font-bold text-4xl'>
+                                    Meditation
+                                </Text>
+                                <Text className='text-center text-white text-regular text-2xl mt-3'>
+                                    Simplifying Meditation for Everyone
+                                </Text>
+                            </View>
 
-                        <View>
-                            <CustomButton
-                                onPress={() => console.log('hiii')}
-                                title='Get Started'
-                            />
-                        </View>
+                            <View>
+                                <CustomButton
+                                    onPress={() =>
+                                        router.push('/nature-meditate')
+                                    }
+                                    title='Get Started'
+                                />
+                            </View>
 
-                        <StatusBar style='light' />
-                    </SafeAreaView>
-                </LinearGradient>
+                            <StatusBar style='light' />
+                        </SafeAreaView>
+                </AppGradient>
             </ImageBackground>
         </View>
     );
